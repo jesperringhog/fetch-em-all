@@ -1,8 +1,8 @@
 import type { OmdbResponse } from "../models/OmdbResponse";
 import { createHtml } from "../utils/htmlUtils";
+import { get } from "./baseService";
 
 export const getMovies = async() => {
-    const response = await fetch("https:omdbapi.com?apikey=3cf50f5c&s=transformers");
-    const data: OmdbResponse = await response.json();
-    createHtml(data.Search);
+    const response = await get<OmdbResponse>("https:omdbapi.com?apikey=3cf50f5c&s=guardians");
+    createHtml(response.Search);
 }
