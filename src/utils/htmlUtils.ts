@@ -1,20 +1,23 @@
 import type { Movie } from "../models/movie";
 
-
 export const createHtml = (movies: Movie[]) => {
-    const app = document.getElementById("app");
+  const section = document.getElementById("movieContainer");
 
-    movies.forEach((movie) => {
-        const title = document.createElement("h2");
-        const poster = document.createElement("img");
-        const year = document.createElement("p");
+  if (section) {
+    section.innerHTML = "";
+  }
 
-        title.innerHTML = movie.Title;
-        poster.src = movie.Poster;
-        year.innerHTML = movie.Year;
+  movies.forEach((movie) => {
+    const title = document.createElement("h2");
+    const poster = document.createElement("img");
+    const year = document.createElement("p");
 
-        app?.appendChild(title);
-        app?.appendChild(poster);
-        app?.appendChild(year);
-    });
-}
+    title.innerHTML = movie.Title;
+    poster.src = movie.Poster;
+    year.innerHTML = movie.Year;
+
+    section?.appendChild(title);
+    section?.appendChild(poster);
+    section?.appendChild(year);
+  });
+};

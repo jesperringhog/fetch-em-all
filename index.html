@@ -7,7 +7,14 @@
     <title>fetch-em-all</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <form action="submit" id="searchForm">
+        <label for="superInput">Search by:</label>
+        <input type="text" placeholder="Movie title" id="superInput">
+        <button>Search</button>
+      </form>
+      <section id="movieContainer"></section>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
